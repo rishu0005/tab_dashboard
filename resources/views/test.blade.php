@@ -53,12 +53,28 @@
         </div>
 
         <div class="right-bottom">
-          <input type="file" name="" class="d-none" id="upload_image">
-          <label for="upload_image" class="continue-btn">Upload Image</label>
+          <form action="" id="upload_bg-wallpaper_form" method="post">
+            <input type="file" name="bg-wallpaper" class="d-none" id="upload_image">
+            <label for="upload_image" class="continue-btn">Upload Image</label>
+          </form>
         </div>
       </div>
     </div>
-  
+    <button onclick="openModal('user_option')">
+      i am button
+    </button>
+
+    <x-modal modal_id="user_option"
+             modal_title="Enter Email"
+             modal_description="Please Enter Email To Get You Registered"
+             modal_button_label="Register"
+             modal_form_action="{{ route('register') }}"
+             modal_form_method="POST"
+             >
+      <input class="modal-input" id="user-input" type="text" placeholder="Enter Email to get you registered" />
+             
+    </x-modal>
+
     <div class="clock-widget">
       <div class="clock-time" id="clockTime">{{ $time->format('h:i') }}  
           <span class="clock-period" id="clockP">{{ $time->format('A')}}</span></div>

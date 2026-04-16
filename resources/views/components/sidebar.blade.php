@@ -37,10 +37,21 @@
       <div class="lang-btn">JP</div>
     </div>
 
-    <div class="profile-area">
-      <div class="avatar">
+    <div class="profile-area" onclick="openModal('user_option')">
+      <div class="avatar" >
         <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
       </div>
       <div class="profile-label">Profile</div>
     </div>
   </nav>
+
+  <x-modal modal_id="user_option"
+             modal_title="Enter Email"
+             modal_description="Please Enter Email To Get You Registered"
+             modal_button_label="Register"
+             modal_form_action="{{ route('register') }}"
+             modal_form_method="POST"
+             >
+      <input class="modal-input" id="user-input" type="text" placeholder="Enter Email to Login" />
+             
+    </x-modal>
