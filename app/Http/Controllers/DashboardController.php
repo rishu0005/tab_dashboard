@@ -44,5 +44,10 @@ class DashboardController extends Controller
             'time'
         ));
     }
+
+    public function updateWallpaper(Request $request)
+    {
+       dd('Updating Wallpaper...');
+    }
    
 }

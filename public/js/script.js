@@ -1,4 +1,3 @@
-{/* <script> */}
 function updateClock() {
     const now = new Date();
 
@@ -22,6 +21,36 @@ function updateClock() {
 // run immediately
 updateClock();
 
-// update every second
+
 setInterval(updateClock, 1000);
-// </script>
+
+
+
+$('#upload_image').on('change', function() {
+    console.log('Updating wallpaper...');
+    // if(!$('#image_input').val()) {
+    //     alert('Please select an image to upload.');
+    //     return;
+    // }
+
+    let update = $('#upload_image').val();
+    $.ajax({
+        url: '/update-bgwallpaper',
+        method: 'POST',
+        data: {
+            _token: '{{ csrf_token() }}',
+            update: update
+        },
+        success: function(response) {
+            if (response.success) { 
+                alert('Wallpaper updated successfully!');
+                location.reload();
+            } else {
+                alert('Failed to update wallpaper.');
+            }
+        },
+        error: function() {
+            alert('An error occurred while updating the wallpaper.');
+        }
+    });
+});
