@@ -32,71 +32,17 @@
         </div>
       </div>
 
-      <!-- LEFT CONTROLS -->
-      {{-- <div class="hero-left">
-        <div class="merch-card">
-          <div class="merch-card-label">Merch</div>
-          <div class="merch-icon-row">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
-          </div>
-          <button class="red-btn">
-            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
-          </button>
-        </div> --}}
-        {{-- <button class="red-btn red-btn-float">
-          <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
-        </button> --}}
-      {{-- </div> --}}
-
       <!-- SERIES TITLE -->
       <div class="title-block">
-        <div class="series-tag font-11">Currently Airing</div>
-        <div class="series-title">Jujutsu<br>Kaisen</div>
+        <div class="series-tag font-11">Word Of The Day</div>
+        <div class="series-title">{{ $word ?? '-' }} </div>
         <!-- GENRE TAGS -->
         <div class="genre-tags">
-          <div class="genre-tag accent">Shonen</div>
-          <div class="genre-tag">Action</div>
-          <div class="genre-tag">Supernatural</div>
+          <div class="genre-tag accent">{{ $part_of_speech ?? 'Not Found' }}</div>
         </div>
-        <div class="series-sub">Season 2 &nbsp;·&nbsp; Shibuya Arc</div>
+        <div class="series-sub">Definition  : &nbsp;·&nbsp; {{ $definition ?? 'Not Found' }}</div>
+        <div class="series-sub">Example : &nbsp;·&nbsp; {{ $example ?? 'Not Found' }}</div>
       </div>
-
-      <!-- PRODUCTIVITY PANEL -->
-{{-- <div class="productivity-panel">
-
-  <!-- NOTES -->
-  <div class="widget notes-widget">
-    <div class="widget-title">Quick Notes</div>
-    <textarea placeholder="Write something..."></textarea>
-  </div>
-
-  <!-- HABITS -->
-  <div class="widget habits-widget">
-    <div class="widget-title">Habits</div>
-
-    <div class="habit">
-      <input type="checkbox" id="h1">
-      <label for="h1">Code 2 hours</label>
-    </div>
-
-    <div class="habit">
-      <input type="checkbox" id="h2">
-      <label for="h2">Workout</label>
-    </div>
-
-    <div class="habit">
-      <input type="checkbox" id="h3">
-      <label for="h3">Read</label>
-    </div>
-  </div>
-
-  <!-- THOUGHTS -->
-  <div class="widget thoughts-widget">
-    <div class="widget-title">Thoughts</div>
-    <textarea placeholder="What's on your mind..."></textarea>
-  </div>
-
-</div> --}}
 
       <!-- RIGHT PANEL -->
       <div class="hero-right">
@@ -109,29 +55,10 @@
         <div class="right-bottom">
           <input type="file" name="" class="d-none" id="upload_image">
           <label for="upload_image" class="continue-btn">Upload Image</label>
-          {{-- <div class="preview-card"> --}}
-            {{-- <div class="preview-scene"></div> --}}
-            <!-- Preview scene figures -->
-            {{-- <svg style="position:absolute;bottom:0;left:0;width:100%;height:65px;" viewBox="0 0 148 65" preserveAspectRatio="xMidYMax meet">
-              <ellipse cx="38" cy="65" rx="22" ry="42" fill="#3a4a6a" opacity="0.8"/>
-              <ellipse cx="74" cy="65" rx="24" ry="48" fill="#2a3a5a" opacity="0.9"/>
-              <ellipse cx="110" cy="65" rx="20" ry="40" fill="#3a4a6a" opacity="0.8"/>
-              <circle cx="38" cy="18" r="10" fill="#5a6a8a"/>
-              <circle cx="74" cy="12" r="12" fill="#4a5a7a"/>
-              <circle cx="110" cy="20" r="10" fill="#5a6a8a"/>
-            </svg> --}}
-            {{-- <div class="play-circle">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div> --}}
-          {{-- </div> --}}
         </div>
       </div>
     </div>
-    @php
-        $time = \Carbon\Carbon::now('Asia/Kolkata');
-@endphp
- 
-    
+  
     <div class="clock-widget">
       <div class="clock-time" id="clockTime">{{ $time->format('h:i') }}  
           <span class="clock-period" id="clockP">{{ $time->format('A')}}</span></div>
