@@ -134,7 +134,7 @@
     
     <div class="clock-widget">
       <div class="clock-time" id="clockTime">{{ $time->format('h:i') }}  
-<span class="clock-period" id="clockP">{{ $time->format('A')}}</span></div>
+          <span class="clock-period" id="clockP">{{ $time->format('A')}}</span></div>
       <div class="clock-date" id="clockDate">{{ $time->format('l, F j, Y') }}</div>
     </div>
     <!-- BOTTOM BAR -->
