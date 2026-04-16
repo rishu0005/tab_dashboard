@@ -107,26 +107,36 @@
         </div>
 
         <div class="right-bottom">
-          <button class="continue-btn">Continue</button>
-          <div class="preview-card">
-            <div class="preview-scene"></div>
+          <input type="file" name="" class="d-none" id="upload_image">
+          <label for="upload_image" class="continue-btn">Upload Image</label>
+          {{-- <div class="preview-card"> --}}
+            {{-- <div class="preview-scene"></div> --}}
             <!-- Preview scene figures -->
-            <svg style="position:absolute;bottom:0;left:0;width:100%;height:65px;" viewBox="0 0 148 65" preserveAspectRatio="xMidYMax meet">
+            {{-- <svg style="position:absolute;bottom:0;left:0;width:100%;height:65px;" viewBox="0 0 148 65" preserveAspectRatio="xMidYMax meet">
               <ellipse cx="38" cy="65" rx="22" ry="42" fill="#3a4a6a" opacity="0.8"/>
               <ellipse cx="74" cy="65" rx="24" ry="48" fill="#2a3a5a" opacity="0.9"/>
               <ellipse cx="110" cy="65" rx="20" ry="40" fill="#3a4a6a" opacity="0.8"/>
               <circle cx="38" cy="18" r="10" fill="#5a6a8a"/>
               <circle cx="74" cy="12" r="12" fill="#4a5a7a"/>
               <circle cx="110" cy="20" r="10" fill="#5a6a8a"/>
-            </svg>
-            <div class="play-circle">
+            </svg> --}}
+            {{-- <div class="play-circle">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
+            </div> --}}
+          {{-- </div> --}}
         </div>
       </div>
     </div>
-
+    @php
+        $time = \Carbon\Carbon::now('Asia/Kolkata');
+@endphp
+ 
+    
+    <div class="clock-widget">
+      <div class="clock-time" id="clockTime">{{ $time->format('h:i') }}  
+<span class="clock-period" id="clockP">{{ $time->format('A')}}</span></div>
+      <div class="clock-date" id="clockDate">{{ $time->format('l, F j, Y') }}</div>
+    </div>
     <!-- BOTTOM BAR -->
     <div class="bottom-bar">
       <div class="now-label">Now Playing</div>
