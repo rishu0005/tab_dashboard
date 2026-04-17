@@ -81,7 +81,7 @@ class DashboardController extends Controller
                     return response()->json([
                         'success' => true,
                         'message' => 'Background image updated successfully',
-                        'image_path' => url('/') . "/storage/" . $path,
+                        'image_path' => url('/') . "/git ststorage/" . $path,
                     ]);
             }
         }
