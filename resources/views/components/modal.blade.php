@@ -31,7 +31,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" onclick="closeModal('{{ $modal_id }}')">Close</button>
-          <button type="submit" class="btn btn-primary" onclick="closeModal('{{ $modal_id }}'); showToast('{{ $toast_message }}', '{{ $toast_status }}')">{{ $modal_button_label }}</button>
+          <button type="submit" class="btn btn-primary bg-accent" onclick="closeModal('{{ $modal_id }}');">{{ $modal_button_label }}</button>
         </div>
     </form>
   </div>

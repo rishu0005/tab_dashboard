@@ -37,28 +37,39 @@ $('#upload_image').on('change', function() {
     //     alert('Please select an image to upload.');
     //     return;
     // }
+    let file = $('#upload_image')[0].files[0];
+    if (!file) {
+        alert('Please select an image to upload.');
+        return;
+    }
+
     let formData = new FormData();
-    formData.append('file', $('#upload_image')[0].files[0])
+    formData.append('file', file);
 
     let update = $('#upload_image').val();
     $.ajax({
         url: '/update-bgwallpaper',
         type: 'POST',
-        data: formData
-        ,
+        data: formData,
         processData : false,
         contentType : false,
 
         success: function(response) {
+            console.log(response);
             if (response.success) { 
-                alert('Wallpaper updated successfully!');
+                showToast('Wallpaper updated successfully!', 'success');
+                let hero = $('#hero_bg_div');
+
+                hero.css('background-image', 'url("' + response.image_path  +'")');
+
                 // location.reload();
             } else {
-                alert('Failed to update wallpaper.');
+                showToast('Failed to update wallpaper.', 'error');
             }
         },
-        error: function() {
-            alert('An error occurred while updating the wallpaper.');
+        error: function(xhr) {
+            console.log(xhr.responseText);
+            showToast('An error occurred while updating the wallpaper.', 'error');
         }
     });
 });
@@ -90,7 +101,7 @@ $('#upload_image').on('change', function() {
     const dismiss = () => {
       toast.classList.add('hide');
       toast.classList.remove('show');
-      setTimeout(() => toast.remove(), 250);
+      setTimeout(() => toast.remove(), 2500);
     };
 
     toast.addEventListener('click', dismiss);
@@ -119,3 +130,32 @@ $('#upload_image').on('change', function() {
     if (e.target === e.currentTarget) closeModal(id);
   }
 
+
+//   Sidebbar Component JS
+// script to validate email and password fields in the login modal
+// let errorText = $('#email-error');
+$('#user-input').on('input', function() {
+    const email = $(this).val();
+    const emailError = $('#email-error');
+    const passwordError = $('#password-error');
+    const confirmationError = $('#confirmation-error');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+        emailError.text('Please enter a valid email address.');
+    } else {
+        emailError.text('');
+    }
+
+    if(email.length === 0) {
+        emailError.text('This field is required.');
+    }
+    else if(email.length < 3  && !emailRegex.test(email)) {
+        emailError.text('Please enter a valid email address.');
+    }
+    else {
+        emailError.text('');
+    }
+
+    
+});

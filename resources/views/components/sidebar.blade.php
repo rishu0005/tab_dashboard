@@ -52,6 +52,20 @@
              modal_form_action="{{ route('register') }}"
              modal_form_method="POST"
              >
-      <input class="modal-input" id="user-input" type="text" placeholder="Enter Email to Login" />
-             
-    </x-modal>
+            <div class="mb-3">
+               <input class="modal-input" name="user_name" id="user-input" type="text" placeholder="Enter username" />
+               <span id="name-error" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+               <input class="modal-input" name="user_email" id="user-input" type="email" placeholder="Enter Email to Login" />
+               <span id="email-error" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+              <input class="modal-input" name="user_password" id="user-password" type="password" placeholder="Enter Password" />
+              <span id="password-error" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+              <input class="modal-input" name="user_password_confirmation" id="user-password-confirmation" type="password" placeholder="Confirm Password" />
+              <span id="confirmation-error" class="text-danger"></span>
+            </div>
+  </x-modal>

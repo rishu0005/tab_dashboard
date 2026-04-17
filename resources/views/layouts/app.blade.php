@@ -42,6 +42,34 @@
     @yield('script')
 
     <!-- ── Toast container ──────────────────────────────────── -->
+    @if(session('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showToast("{{ session('success') }}", "success");
+            });
+        </script>
+    @endif
+    @if (session('failed'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showToast("{{ session('failed') }}", "error");
+            });
+        </script>
+    @endif
+    @if (session('info'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showToast("{{ session('info') }}", "info");
+            });
+        </script>
+    @endif
+    @if (session('warning'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showToast("{{ session('warning') }}", "warning");
+            });
+        </script>
+    @endif
     <div id="toast-container"></div>
     <script src="{{ asset('js/script.js') }}"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}

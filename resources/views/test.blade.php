@@ -13,10 +13,14 @@
     </div>
 
     <div class="hero">
+      @if($image)
+      <div class="hero-bg" id="hero_bg_div" style="background-image:url(' {{ asset('storage/' . $image ) }}')"></div>
+      @else
       <div class="hero-bg"></div>
       <div class="hero-noise"></div>
       <div class="kanji-bg">領域展開</div>
-
+      @endif
+      
       
 
       <!-- SCORE BADGE -->
@@ -60,20 +64,6 @@
         </div>
       </div>
     </div>
-    <button onclick="openModal('user_option')">
-      i am button
-    </button>
-
-    <x-modal modal_id="user_option"
-             modal_title="Enter Email"
-             modal_description="Please Enter Email To Get You Registered"
-             modal_button_label="Register"
-             modal_form_action="{{ route('register') }}"
-             modal_form_method="POST"
-             >
-      <input class="modal-input" id="user-input" type="text" placeholder="Enter Email to get you registered" />
-             
-    </x-modal>
 
     <div class="clock-widget">
       <div class="clock-time" id="clockTime">{{ $time->format('h:i') }}  

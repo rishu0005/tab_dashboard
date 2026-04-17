@@ -453,7 +453,7 @@
     const dismiss = () => {
       toast.classList.add('hide');
       toast.classList.remove('show');
-      setTimeout(() => toast.remove(), 250);
+      setTimeout(() => toast.remove(), 2500);
     };
 
     toast.addEventListener('click', dismiss);
