@@ -177,6 +177,9 @@
   .hero-bg {
     position: absolute; inset: 0;
     background: radial-gradient(ellipse at 55% 35%, #3a0f0f 0%, #1e0808 45%, #111 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   .hero-noise {
